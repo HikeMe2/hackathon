@@ -1,0 +1,46 @@
+[
+    {
+        "name":  "Eilat Red Canyon",
+        "location": "Israel",
+        "duration": "3-4 hours",
+        "length":  5,
+        "elevation":100,
+        "difficulty": 1,
+        "description": "The Red Canyon In Israel Is A “Classic”, Easy And Accessible Hike Near Eilat. The Colorful And Narrow Gorge Gives A Good Taste Of Desert Hiking Without Sweating Too Much.",
+        "image":"https://www.hike-israel.com/wp-content/uploads/2020/11/Red-Canyon-Feat-small.jpg"
+
+    },
+    {
+        "name":  "Wadi Qelt (Ein Prat)",
+        "location": "Israel",
+        "duration": "5-6 hours",
+        "length":  9,
+        "elevation":200,
+        "difficulty": 3,
+        "description": "Most of the hike is on rocky terrain. There are some exposed sections equipped with metal handles.",
+        "image":"https://www.hike-israel.com/wp-content/uploads/2018/08/st-george-monastery-zoom1.jpg"
+
+    },
+    {
+        "name":  "EIN GEDI NATURE RESERVE",
+        "location": "Israel",
+        "duration": "3-4 hours",
+        "length":  6,
+        "elevation":500,
+        "difficulty": 2,
+        "description": "Ein Gedi Is A Magical Nature Reserve. It Has Much To Offer And It Can Be Hard To Choose From Its Many Attractions. In This Guide You Have All The Information, Including Detailed Maps, To Plan Your Perfect Visit",
+        "image":"https://www.hike-israel.com/wp-content/uploads/2019/04/Arugot-Hidden-Waterfall-1024x539.jpg"
+
+    },
+    {
+        "name":  "Eilat Red Canyon",
+        "location": "Israel",
+        "duration": "1-2 days",
+        "length":  60,
+        "elevation":400,
+        "difficulty": 5,
+        "description": "An Itinerary That Includes The Most Important Landmarks In And Around Makhtesh Ramon (Ramon Crater). Combined With Interesting Short Walks.",
+        "image":"https://www.hike-israel.com/wp-content/uploads/2018/11/Makhtesh-Ramon-feat-1024x539.jpg"
+
+    }
+]
