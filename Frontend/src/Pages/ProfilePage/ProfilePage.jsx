@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { Alert, Container, Form, Button } from "react-bootstrap";
-
+import useAuth from "../../hooks/useAuth";
 function ProfilePage() {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+  const { activeUser } = useAuth();
+
+  const [email, setEmail] = useState(activeUser?.email);
+  const [password, setPassword] = useState(activeUser?.password);
+  const [firstName, setFirstName] = useState(activeUser?.firstName);
+  const [lastName, setLastName] = useState(activeUser?.lastName);
 
   const handelSubmit = (e) => {
-      e.preventDefualt()
+    e.preventDefualt();
     if (email || password || firstName || lastName) {
       <Alert>Please provide all values</Alert>;
     }
   };
-
 
   return (
     <Container>
@@ -57,7 +58,9 @@ function ProfilePage() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">Submit</Button>
+        <Button variant="primary" >
+          Submit
+        </Button>
       </Form>
     </Container>
   );

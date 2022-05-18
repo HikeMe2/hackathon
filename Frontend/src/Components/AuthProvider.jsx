@@ -41,6 +41,7 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        activeUser,
         isModalShow,
         onLogin: handleLogin,
         onSignUp: handleSignUp,
