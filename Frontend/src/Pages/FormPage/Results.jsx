@@ -1,4 +1,5 @@
 import React from "react";
+import { Col } from "react-bootstrap";
 import TrailCard from "./TrailCard";
 
 function Results({trails}) {
@@ -7,7 +8,9 @@ function Results({trails}) {
       <>
         {trails.length > 0 &&
           trails.map((element, index) => (
-            <TrailCard trail={element} key={index} />
+            <Col key={index}>
+              <TrailCard trail={element} />
+            </Col>
           ))}
         {trails.length === 0 && <h3>No such results</h3>}
       </>
