@@ -1,9 +1,8 @@
 import { Container } from "react-bootstrap";
 
-
 const Welcome = () => {
   return (
-    <Container>
+    <Container className="welcom-page">
       <h1 className="mb-5">Welcome to Hike Me To</h1>
       <p>
         Hike Me To Travel is a app dedicated to travelers who love to hike. It’s
