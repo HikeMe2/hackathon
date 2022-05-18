@@ -32,7 +32,7 @@ async function createUser(email:string,password:string,first_name: string,last_n
     const connection: Connection = await mysql.createConnection(connectionSettings)
     try{
         const hashedPassword = await bcryptjs.hash(password,SALT_RONDS)
-        const [_existingRows,_existingFields]: [RowDataPacket[],FieldPacket[]] = await connection.execute("INSERT INTO user (email,password,first_name,last_name) VALUES (?,?,?,?,?);",[email.toLowerCase(),hashedPassword,first_name.toLowerCase(),last_name.toLowerCase()])
+        const [_existingRows,_existingFields]: [RowDataPacket[],FieldPacket[]] = await connection.execute("INSERT INTO user (email,password,first_name,last_name) VALUES (?,?,?,?);",[email.toLowerCase(),hashedPassword,first_name.toLowerCase(),last_name.toLowerCase()])
     
     }
     catch(err){
