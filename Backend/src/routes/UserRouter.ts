@@ -1,3 +1,4 @@
+import { validateNew } from './../middleware/ValidateNewUserMiddleware';
 import * as uc from "../controllers/UserController";
 import express, { Router } from "express";
 
@@ -7,7 +8,7 @@ userRouter.route('/login')
     .post(uc.login)
 
 userRouter.route('/signup')
-    .post(uc.signup)
+    .post(validateNew,uc.signup)
 
 userRouter.route('/logout')
     .post(uc.logout)
