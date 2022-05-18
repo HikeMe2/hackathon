@@ -1,82 +1,88 @@
-import React, { useState } from "react";
+import React, { useState,useMemo } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
+import Select from "react-select";
+import countryList from "react-select-country-list";
 import Results from "./Results";
 import trails from "../../data/trails.json";
 
 function FormPage() {
   const [time, setTime] = useState();
   const [length, setLength] = useState();
-  const [hiking, setHiking] = useState();
-  const [difficulty, setDifficulty] = useState();
-  const [location, setLocation] = useState();
-  const [results, setResults] = useState(trails);
-  function onSearch() {
-    setResults();
-  }
+  const [hiking, setHiking] = useState('');
+  const [difficulty, setDifficulty] = useState('');
+  const [country, setCountry] = useState('');
+    const [ results, setResults ] = useState(trails);
+    
+    const options = useMemo(() => countryList().getData(), []);
+
+    const changeHandler = (value) => {
+      setCountry(value);
+    };
+
+    function onSearch() {
+      setResults();
+    }
 
   return (
-    <Container style={{textAlign:"-webkit-center", position: "relative"}}>
-      <h1 className="mb-5">Find your new hike!</h1>
-      <Form>
-        <Form.Group className="mb-5">
-          <Form.Label style={{ position: "absolute", top: "12%", left: "36%" }} >How much time do u want to walk a day?</Form.Label>
-          <Form.Control
-            style={{ width: "30%" }}
-            type="text"
-            placeholder="hours"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          />
-          <Form.Text className="text-muted"></Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-5">
-          <Form.Label style={{ position: "absolute", top: "28%", left: "36%" }}>How many kilometers in total?</Form.Label>
-          <Form.Control
-            style={{ width: "30%" }}
-            type="text"
-            placeholder="kilometers"
-            value={length}
-            onChange={(e) => setLength(e.target.value)}
-          />
-          <Form.Text className="text-muted"></Form.Text>
-        </Form.Group>
-        <Form.Select
-          className="mb-5"
-          aria-label="Default select example"
-          value={hiking}
-          style={{ width: "30%" }}
-        >
-          <option>Choose hiking environment</option>
-          <option value="valley">valley</option>
-          <option value="mountain">mountain</option>
-          <option value="alpine">alpine</option>
-        </Form.Select>
-        <Form.Select
-          className="mb-5"
-          aria-label="Default select example"
-          value={difficulty}
-          style={{ width: "30%" }}
-        >
-          <option>Choose difficulty</option>
-          <option value="one">1</option>
-          <option value="two">2</option>
-          <option value="three">3</option>
-          <option value="four">4</option>
-          <option value="five">5</option>
-          <option value="six">6</option>
-        </Form.Select>
-        <Form.Group className="mb-5">
-          <Form.Label style={{ position: "absolute", top: "74%", left: "36%" }}>Choose a location from the list</Form.Label>
-          <Form.Control
-            style={{ width: "30%" }}
-            type="text"
-            placeholder="search country"
-            value={length}
-            onChange={(e) => setLength(e.target.value)}
-          />
-          <Form.Text className="text-muted"></Form.Text>
-        </Form.Group>
-      </Form>
+    <Container>
+      <h1 className="text-center my-3">Find your new hike!</h1>
+      <Row className="justify-content-center">
+        <Col xs="10" lg="6">
+          <Form className="my-3 ">
+            <Form.Group className="mb-3">
+              <Form.Label>How much time do you want to walk a day?</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="hours"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>How many kilometers do you want to hike in total?</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Km"
+                value={length}
+                onChange={(e) => setLength(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Please choose the hiking environment</Form.Label>
+              <Form.Select aria-label="Default select example" value={hiking}>
+                <option>Choose...</option>
+                <option value="valley">Valley</option>
+                <option value="mountain">Mountain</option>
+                <option value="alpine">Alpine</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Please choose the difficulties</Form.Label>
+              <Form.Select
+                aria-label="Default select example"
+                value={difficulty}
+              >
+                <option>Choose...</option>
+                <option value="one">1</option>
+                <option value="two">2</option>
+                <option value="three">3</option>
+                <option value="four">4</option>
+                <option value="five">5</option>
+                <option value="six">6</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-5">
+              <Form.Label>Please choose a country</Form.Label>
+              <Select
+                options={options}
+                value={country}
+                onChange={changeHandler}
+              />
+
+            </Form.Group>
+          </Form>
+        </Col>
+      </Row>
 
       <Row className="justify-content-center">
         <Col md="12" lg="10" xl="10">

@@ -1,54 +1,49 @@
-import React from 'react';
+import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button } from '@mui/material';
+import { Button } from "@mui/material";
 
-function TrailCard({trail}) {
-    return (
-      <Card
-        sx={{ minWidth: 220, maxWidth: 345, minHeight: 620 }}
-        className="mb-4"
-        style={{ margin: "auto" }}
-      >
-        <CardMedia
-          component="img"
-          height="240"
-          image={trail.image}
-          alt="pet image"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {trail.name}
-          </Typography>
+function TrailCard({ trail }) {
+  return (
+    <Card
+      sx={{ minWidth: 220, maxWidth: 345, minHeight: 620 }}
+      className="mb-4"
+      style={{ margin: "auto" }}
+    >
+      <CardMedia
+        component="img"
+        height="240"
+        image={trail.image}
+        alt="pet image"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {trail.name}
+        </Typography>
 
-          <Typography
-            mb={1}
-            variant="h6"
-            color="text.secondary"
-            component="div"
-          >
-            {trail.location}
-          </Typography>
-          <Typography mb={1} variant="body2" color="text.secondary">
-            {trail.description}
-          </Typography>
-          <Typography mb={1} variant="body2" color="text.secondary">
-            <strong>Duration: {trail.duration}</strong>
-          </Typography>
-          <Typography mb={1} variant="body2" color="text.secondary">
-            <strong> Difficulty: Level {trail.difficulty}</strong>
-          </Typography>
-          <Typography mb={1} variant="body2" color="text.secondary">
-            <strong>Length: {trail.length} KM</strong>
-          </Typography>
-          <Typography mb={1} variant="body2" color="text.secondary">
-            <strong> Elevation: {trail.elevation} meter</strong>
-          </Typography>
-        </CardContent>
-        {/* <CardActions style={{ justifyContent: "space-around" }}>
+        <Typography mb={1} variant="h6" color="text.secondary" component="div">
+          {trail.location}
+        </Typography>
+        <Typography mb={1} variant="body2" color="text.secondary">
+          {trail.description}
+        </Typography>
+        <Typography mb={1} variant="body2" color="text.secondary">
+          <strong>Duration: {trail.duration}</strong>
+        </Typography>
+        <Typography mb={1} variant="body2" color="text.secondary">
+          <strong> Difficulty: Level {trail.difficulty}</strong>
+        </Typography>
+        <Typography mb={1} variant="body2" color="text.secondary">
+          <strong>Length: {trail.length} KM</strong>
+        </Typography>
+        <Typography mb={1} variant="body2" color="text.secondary">
+          <strong> Elevation: {trail.elevation} meter</strong>
+        </Typography>
+      </CardContent>
+      {/* <CardActions style={{ justifyContent: "space-around" }}>
           <Button disabled style={{ color: "#563d7c" }} size="medium">
             Duration: {trail.duration}
           </Button>
@@ -56,8 +51,8 @@ function TrailCard({trail}) {
             Difficulty: {trail.difficulty}
           </Button>
         </CardActions> */}
-      </Card>
-    );
+    </Card>
+  );
 }
 
 export default TrailCard;
