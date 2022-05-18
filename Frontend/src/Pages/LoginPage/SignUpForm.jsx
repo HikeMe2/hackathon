@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Button, FloatingLabel, Form, Spinner } from 'react-bootstrap';
 import useAuth from "../../hooks/useAuth";
 
-function SignUpForm(props) {
-    const { onModalClose } = useAuth();
+function SignUpForm() {
+    const { onModalClose, onSignUp } = useAuth();
     const [ isSigningUp, setIsSigningUp ] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -11,8 +11,8 @@ function SignUpForm(props) {
     const [firstName, setFirstName] = useState("");
     const [ lastName, setLastName ] = useState("");
     
-    function handleSignUp() {
-        
+    async function handleSignUp() {
+        await onSignUp(email, password, firstName, lastName);
     }
 
     return (

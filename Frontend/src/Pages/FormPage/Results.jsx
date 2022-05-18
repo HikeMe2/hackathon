@@ -12,7 +12,7 @@ function Results({trails}) {
               <TrailCard trail={element} />
             </Col>
           ))}
-        {trails.length === 0 && <h3>No such results</h3>}
+        {/* {trails.length === 0 && <h3>No such results</h3>} */}
       </>
     );
 }

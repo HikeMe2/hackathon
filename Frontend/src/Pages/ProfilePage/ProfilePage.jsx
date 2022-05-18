@@ -3,7 +3,6 @@ import { Alert, Container, Form, Button, Row, Col } from "react-bootstrap";
 import useAuth from "../../hooks/useAuth";
 function ProfilePage() {
   const { activeUser } = useAuth();
-
   const [email, setEmail] = useState(activeUser?.email);
   const [password, setPassword] = useState(activeUser?.password);
   const [firstName, setFirstName] = useState(activeUser?.firstName);
@@ -12,7 +11,7 @@ function ProfilePage() {
   const handelSubmit = (e) => {
     e.preventDefault();
     if (email || password || firstName || lastName) {
-      <Alert>Please provide all values</Alert>;
+      // <Alert>Please provide all values</Alert>;
     }
   };
 
@@ -21,7 +20,7 @@ function ProfilePage() {
       <h1 className="text-center my-3">Profile</h1>
       <Row className="justify-content-center">
         <Col xs="10" md="7" lg="5">
-          <Form onSubmit={handelSubmit}>
+          <Form >
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -60,7 +59,17 @@ function ProfilePage() {
               />
             </Form.Group>
 
-            <Button className="mt-3" variant="primary">Submit</Button>
+            <Button
+              style={{
+                marginLeft: "auto",
+                backgroundColor: "#563d7c",
+                borderColor: "#563d7c",
+              }}
+              className="mt-3"
+              onClick={handelSubmit}
+            >
+              Submit
+            </Button>
           </Form>
         </Col>
       </Row>

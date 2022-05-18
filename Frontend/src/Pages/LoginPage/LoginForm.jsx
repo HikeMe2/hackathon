@@ -8,8 +8,8 @@ function LoginForm() {
     const [ password, setPassword ] = useState("");
     const [ isLoggingIn, setIsLoggingIn ] = useState(false);
     
-function handleLogin(email, password) {
-    onLogin(email, password);
+async function handleLogin(email, password) {
+    await onLogin(email, password);
 }
 
     return (
