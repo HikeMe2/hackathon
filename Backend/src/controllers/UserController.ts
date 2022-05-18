@@ -44,7 +44,7 @@ import * as dbactions from '../models/userDBFunctions'
             res.send(signedUser) 
         }
         catch(error){
-            res.status(404).send("Username taken")
+            next(error)
         }
 
     }
