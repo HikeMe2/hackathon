@@ -11,7 +11,12 @@ function FormPage() {
   const [length, setLength] = useState('');
   const [hiking, setHiking] = useState('');
   const [difficulty, setDifficulty] = useState('');
-  const [country, setCountry] = useState('');
+  const [ country, setCountry ] = useState('');
+  const [climb, setClimb] = useState("");
+  const [maximumAttitude, setMaximumAttitude] = useState("");
+  const [minimumAttitude, setMinimumAttitude] = useState("");
+  const [ meters, setMeters ] = useState("");
+  
   const [ results, setResults ] = useState([]);
   const [ isSearching, setIsSearching ] = useState(false);
   const [ emptyFieldError, setEmptyFieldError ] = useState(false);
@@ -28,7 +33,17 @@ function FormPage() {
     }
     else { 
       setEmptyFieldError(false)
-      const userAnswers = { time, length, hiking, difficulty, country }
+      const userAnswers = {
+        time,
+        length,
+        hiking,
+        difficulty,
+        country,
+        climb,
+        maximumAttitude,
+        minimumAttitude,
+        meters,
+      };
       console.log(userAnswers);
       setIsSearching(true);
       // await search(userAnswers);
@@ -37,9 +52,6 @@ function FormPage() {
     }
     }
   
-  function handleClearSearch() { 
-
-  }
 
   return (
     <Container>
@@ -50,6 +62,7 @@ function FormPage() {
             {emptyFieldError && (
               <Alert variant="danger">Error: please complete all fields!</Alert>
             )}
+
             <Form.Group className="mb-3">
               <Form.Label>How much time do you want to walk a day?</Form.Label>
               <Form.Control
@@ -77,7 +90,7 @@ function FormPage() {
                 value={hiking}
                 onChange={(e) => setHiking(e.target.value)}
               >
-                <option value='' >Choose...</option>
+                <option value="">Choose...</option>
                 <option value="valley">Valley</option>
                 <option value="mountain">Mountain</option>
                 <option value="alpine">Alpine</option>
@@ -90,7 +103,7 @@ function FormPage() {
                 value={difficulty}
                 onChange={(e) => setDifficulty(e.target.value)}
               >
-                <option value={''}>Choose...</option>
+                <option value={""}>Choose...</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
@@ -99,7 +112,7 @@ function FormPage() {
                 <option value={6}>6</option>
               </Form.Select>
             </Form.Group>
-            <Form.Group className="mb-5">
+            <Form.Group className="mb-3">
               <Form.Label>Please choose a country</Form.Label>
               <Select
                 options={options}
@@ -107,8 +120,51 @@ function FormPage() {
                 onChange={changeCountryHandler}
               />
             </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>How many meters do you want to climb?</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Meter"
+                value={climb}
+                onChange={(e) => setClimb(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>
+                What is the maximum attitude are you ready to reach?
+              </Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Maximum attitude"
+                value={maximumAttitude}
+                onChange={(e) => setMaximumAttitude(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>
+                What is the minimum attitude are you ready to start from?
+              </Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Minimum attitude"
+                value={minimumAttitude}
+                onChange={(e) => setMinimumAttitude(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>
+                How many meters do you want to climb down?
+              </Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Meter"
+                value={meters}
+                onChange={(e) => setMeters(e.target.value)}
+              />
+            </Form.Group>
+
             <div style={{ display: "flex", alignItems: "center" }}>
-              <Button
+              {/* <Button
                 variant="outline"
                 style={{
                   marginRight: "auto",
@@ -119,7 +175,7 @@ function FormPage() {
                 onClick={handleClearSearch}
               >
                 Clear Search
-              </Button>
+              </Button> */}
               <Button
                 disabled={isSearching ? true : false}
                 className="p-form-btn"
