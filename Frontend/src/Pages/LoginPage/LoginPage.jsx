@@ -1,9 +1,11 @@
 import React from 'react';
+import LoginSignupModal from './LoginSignupModal';
 
-function LoginPage(props) {
+function LoginPage() {
     return (
         <div>
-            
+            LoginPage
+            <LoginSignupModal/>
         </div>
     );
 }
