@@ -2,21 +2,24 @@ import React from "react";
 import {
   Container,
   Nav,
-  NavDropdown,
   Navbar,
-  Form,
-  FormControl,
-  Button,
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { FaHiking, FaHome } from "react-icons/fa";
+import { BsFillPinMapFill, BsPersonCircle } from "react-icons/bs";
+import { MdLogout } from 'react-icons/md';
+import { GoSignIn } from 'react-icons/go'
 import useAuth from "../hooks/useAuth";
+import './MainNavbar.css'
 
 function MainNavbar() {
   const { activeUser, onLogout, onModalShow } = useAuth();
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" collapseOnSelect>
       <Container fluid>
-        <Navbar.Brand href="/">HikeMe2</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <FaHiking /> &nbsp; HikeMe2
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -25,7 +28,7 @@ function MainNavbar() {
             navbarScroll
           >
             <Nav.Link as={NavLink} eventKey="1" to="/">
-              {/* <FaHome /> */}
+              <FaHome />
               &nbsp;Home
             </Nav.Link>
             <Nav.Link
@@ -35,11 +38,12 @@ function MainNavbar() {
               // onClick={OnNavigateSearch}
             >
               {/* <ImSearch /> */}
+              <BsFillPinMapFill />
               &nbsp;Find new trip
             </Nav.Link>
             {activeUser && (
               <Nav.Link as={NavLink} eventKey="3" to="/profile">
-                {/* <BsPersonCircle /> */}
+                <BsPersonCircle />
                 &nbsp; My Profile
               </Nav.Link>
             )}
@@ -48,7 +52,7 @@ function MainNavbar() {
             {activeUser ? (
               <Nav.Link as={NavLink} eventKey="8" to="/" onClick={onLogout}>
                 Log out &nbsp;
-                {/* <MdLogout /> */}
+                <MdLogout />
               </Nav.Link>
             ) : (
               <Nav.Link
@@ -58,7 +62,7 @@ function MainNavbar() {
                 onClick={onModalShow}
               >
                 Login &nbsp;
-                {/* <GoSignIn /> */}
+                <GoSignIn />
               </Nav.Link>
             )}
           </Nav>

@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
 
 function AuthProvider({ children }) {
-  const [activeUser, setActiveUser] = useState();
+  const [activeUser, setActiveUser] = useState(
+    localStorage.activeUser ? JSON.parse(localStorage.activeUser) : null
+  );
   const [isModalShow, setIsModalShow] = useState(false);
   const navigate = useNavigate();
 
@@ -40,7 +42,8 @@ function AuthProvider({ children }) {
   }
   return (
     <AuthContext.Provider
-      value={{
+          value={{
+          activeUser,
         isModalShow,
         onLogin: handleLogin,
         onSignUp: handleSignUp,

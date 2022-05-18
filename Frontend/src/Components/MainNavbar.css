@@ -1,0 +1,6 @@
+.nav-link.nav-link, .navbar-brand, .navbar-dropdown-item.dropdown-item  {
+ margin-right: 1rem;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+}
