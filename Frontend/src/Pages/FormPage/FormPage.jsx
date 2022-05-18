@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { Container, Form } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import Results from "./Results";
+import trails from "../../data/trails.json";
 
-function FormPage(props) {
+function FormPage() {
   const [time, setTime] = useState();
   const [length, setLength] = useState();
   const [hiking, setHiking] = useState();
   const [difficulty, setDifficulty] = useState();
   const [location, setLocation] = useState();
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState(trails);
   function onSearch() {
     setResults();
   }
@@ -76,7 +77,14 @@ function FormPage(props) {
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
       </Form>
-      <Results trails={results} />
+
+      <Row className="justify-content-center">
+        <Col md="12" lg="10" xl="10">
+          <Row xs={1} sm={2} md={3} className="g-4 py-3">
+            <Results trails={results} />
+          </Row>
+        </Col>
+      </Row>
     </Container>
   );
 }

@@ -10,7 +10,7 @@ function ProfilePage() {
   const [lastName, setLastName] = useState(activeUser?.lastName);
 
   const handelSubmit = (e) => {
-    e.preventDefualt();
+    e.preventDefault();
     if (email || password || firstName || lastName) {
       <Alert>Please provide all values</Alert>;
     }
