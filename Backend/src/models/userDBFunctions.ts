@@ -42,3 +42,9 @@ async function createUser(email:string,password:string,first_name: string,last_n
 
 
 }
+
+
+
+
+
+export {createUser,retrieveUserFromDB}
