@@ -1,8 +1,13 @@
 import { NextFunction } from 'express';
-
+import { ILogin } from '../interfaces/ILogin';
 
     const login = (req:any, res:any ,next:NextFunction) =>{
-        throw Error("Not implemented")
+        const credentials: ILogin = {
+            email: req.body.email,
+            password: req.body.password
+        }
+        
+
     }
 
 
