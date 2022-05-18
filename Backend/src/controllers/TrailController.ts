@@ -3,9 +3,8 @@ const getTrail = async(req:any ,res:any ,next:NextFunction) =>{
     throw Error("Not implemented")
 }
 
-
-const getQuestionareResults = async (req:any ,res:any ,next:NextFunction) =>{
-    throw Error("Not Implemented")
+const getAllTrails = async(req:any ,res:any, next:NextFunction) =>{
+    throw Error("Not implemented")
 }
 
 const sendQuestionare = async(req:any,res: any, next: NextFunction) =>{
@@ -13,4 +12,4 @@ const sendQuestionare = async(req:any,res: any, next: NextFunction) =>{
 }
   
 
-
+export {getTrail,getAllTrails,sendQuestionare}

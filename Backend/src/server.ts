@@ -2,6 +2,7 @@ import express, { Express } from "express";
 import cors from 'cors';
 import 'dotenv/config';
 import { userRouter } from "./routes/UserRouter";
+import { trailRouter } from "./routes/TrailRoutes";
 
 const PORT = process.env.PORT
 
@@ -15,6 +16,7 @@ app.use(express.json())
 
 // use routes and inject middleware
 app.use('/user',userRouter)
+app.use('/trail',trailRouter)
 
 
 app.listen(PORT,() =>{
