@@ -2,7 +2,6 @@ import { connectionSettings } from "./mysqlsettings";
 import mysql, { Connection, FieldPacket, RowDataPacket } from 'mysql2/promise'
 import bcryptjs from 'bcryptjs'
 import { IUser } from "../interfaces/IUser";
-import { createTextChangeRange } from "typescript";
 
 
 
