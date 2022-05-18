@@ -17,12 +17,15 @@ function ProfilePage() {
   };
 
   return (
-    <Container>
+    <Container style={{ textAlign: "-webkit-center", position: "relative" }}>
       <h1 className="mb-5">Profile</h1>
       <Form onSubmit={handelSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+        <Form.Group className="mb-5" controlId="formBasicEmail">
+          <Form.Label style={{ position: "absolute", top: "14%", left: "36%" }}>
+            Email address
+          </Form.Label>
           <Form.Control
+            style={{ width: "30%" }}
             type="email"
             placeholder="Enter email"
             value={email}
@@ -30,37 +33,38 @@ function ProfilePage() {
           />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+        <Form.Group className="mb-5" controlId="formBasicPassword">
+          <Form.Label style={{ position: "absolute", top: "32%", left: "36%" }}>Password</Form.Label>
           <Form.Control
+            style={{ width: "30%" }}
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicText">
-          <Form.Label>First Name and Last Name</Form.Label>
+        <Form.Group className="mb-5" controlId="formBasicText">
+          <Form.Label style={{ position: "absolute", top: "50%", left: "36%" }}>First Name</Form.Label>
           <Form.Control
+            style={{ width: "30%" }}
             type="text"
-            placeholder="First Name and Last Name"
+            placeholder="First Name"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicText">
-          <Form.Label>Phone Number</Form.Label>
+        <Form.Group className="mb-5" controlId="formBasicText">
+          <Form.Label style={{ position: "absolute", top: "68%", left: "36%" }}>Last Name</Form.Label>
           <Form.Control
-            type="Phone"
-            placeholder="Phone Number"
+            style={{ width: "30%" }}
+            type="text"
+            placeholder="Last Name"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
           />
         </Form.Group>
 
-        <Button variant="primary" >
-          Submit
-        </Button>
+        <Button variant="primary">Submit</Button>
       </Form>
     </Container>
   );

@@ -1,10 +1,10 @@
 import { Container } from "react-bootstrap";
-import "./homePage.css"
+import "./homePage.css";
 
 function HomePage(props) {
   return (
     <div>
-      <Container className="home" >
+      <Container style={{ textAlign: "-webkit-center", position: "relative" }}>
         <h1 className="mb-5">Welcome to Hike Me To</h1>
         <p>
           Hike Me To Travel is a app dedicated to travelers who love to hike.
