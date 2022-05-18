@@ -7,14 +7,14 @@ function setAuthHeader(token) {
   api.defaults.headers["Authorization"] = `Bearer ${token}`;
 }
 
-async function login(username, password) {
-  const response = await api.post("/auth/login", { username, password });
+async function login(email, password) {
+  const response = await api.post("/user/login", { email, password });
   return response.data;
 }
 
-async function signUp(username, password, firstName, lastName) {
-  const response = await api.post("/auth/signup", {
-    username,
+async function signUp(email, password, firstName, lastName) {
+  const response = await api.post("/user/signup", {
+    email,
     password,
     firstName,
     lastName,

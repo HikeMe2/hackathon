@@ -4,8 +4,8 @@ import AuthContext from "../contexts/AuthContext";
 import useAuth from "../hooks/useAuth";
 
 function AuthProvider({ children }) {
-  const { login, signup, setAuthHeader } = useAuth();
-  const [activeUser, setActiveUser] = useState(
+/*   const { login, signup, setAuthHeader } = useAuth();
+ */  const [activeUser, setActiveUser] = useState(
     localStorage.activeUser ? JSON.parse(localStorage.activeUser) : null
   );
   const [isModalShow, setIsModalShow] = useState(false);
