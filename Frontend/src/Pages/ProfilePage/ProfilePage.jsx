@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Container, Form, Button } from "react-bootstrap";
+import { Alert, Container, Form, Button, Row, Col } from "react-bootstrap";
 import useAuth from "../../hooks/useAuth";
 function ProfilePage() {
   const { activeUser } = useAuth();
@@ -17,55 +17,53 @@ function ProfilePage() {
   };
 
   return (
-    <Container style={{ textAlign: "-webkit-center", position: "relative" }}>
-      <h1 className="mb-5">Profile</h1>
-      <Form onSubmit={handelSubmit}>
-        <Form.Group className="mb-5" controlId="formBasicEmail">
-          <Form.Label style={{ position: "absolute", top: "14%", left: "36%" }}>
-            Email address
-          </Form.Label>
-          <Form.Control
-            style={{ width: "30%" }}
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Form.Text className="text-muted"></Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-5" controlId="formBasicPassword">
-          <Form.Label style={{ position: "absolute", top: "32%", left: "36%" }}>Password</Form.Label>
-          <Form.Control
-            style={{ width: "30%" }}
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-5" controlId="formBasicText">
-          <Form.Label style={{ position: "absolute", top: "50%", left: "36%" }}>First Name</Form.Label>
-          <Form.Control
-            style={{ width: "30%" }}
-            type="text"
-            placeholder="First Name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-5" controlId="formBasicText">
-          <Form.Label style={{ position: "absolute", top: "68%", left: "36%" }}>Last Name</Form.Label>
-          <Form.Control
-            style={{ width: "30%" }}
-            type="text"
-            placeholder="Last Name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </Form.Group>
+    <Container>
+      <h1 className="text-center my-3">Profile</h1>
+      <Row className="justify-content-center">
+        <Col xs="10" md="7" lg="5">
+          <Form onSubmit={handelSubmit}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicText">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicText">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </Form.Group>
 
-        <Button variant="primary">Submit</Button>
-      </Form>
+            <Button className="mt-3" variant="primary">Submit</Button>
+          </Form>
+        </Col>
+      </Row>
     </Container>
   );
 }
