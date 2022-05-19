@@ -48,10 +48,10 @@ async function createUser(email:string,password:string,first_name: string,last_n
 }
 
 
-async function getUsersName(email:string){
+async function getUserInfo(email:string){
     const connection: Connection = await mysql.createConnection(connectionSettings)
     try{
-        const [rows,_existingFields]: [RowDataPacket[],FieldPacket[]] = await connection.execute("SELECT user.first_name FROM user WHERE user.email = ?",[email.toLowerCase()])
+        const [rows,_existingFields]: [RowDataPacket[],FieldPacket[]] = await connection.execute("SELECT user.first_name, user.last_name, user.email FROM user WHERE user.email = ?",[email.toLowerCase()])
         return rows[0]
     }
     catch(err){
@@ -64,4 +64,4 @@ async function getUsersName(email:string){
 
 
 
-export {createUser,retrieveUserFromDB,getUsersName}
+export {createUser,retrieveUserFromDB,getUserInfo}

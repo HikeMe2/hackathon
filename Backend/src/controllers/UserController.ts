@@ -64,7 +64,7 @@ import * as dbactions from '../models/userDBFunctions'
     const greetUser = async(req:any,res:any, next: NextFunction) =>{
         const email: string = req.query.email;
         try{
-            const result = await dbactions.getUsersName(email)
+            const result = await dbactions.getUserInfo(email)
             res.send(result)
         }
         catch(err){

@@ -5,6 +5,7 @@ const api = axios.create({
 
 async function login(email, password) {
   const response = await api.post("/user/login", { email, password });
+  // const userName = await api.get("/user/greetuser",{params:email})
   return response.data;
 }
 
@@ -18,6 +19,7 @@ async function signUp(email, password, firstName, lastName, confirmPassword) {
   });
   return response.data;
 }
+
 
 async function search(userAnswers) {
   // const response = await api.get("/trails", userAnswers);
