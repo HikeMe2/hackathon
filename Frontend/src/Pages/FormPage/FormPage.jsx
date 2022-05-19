@@ -34,21 +34,21 @@ function FormPage() {
     else { 
       setEmptyFieldError(false)
       const userAnswers = {
-        time,
-        length,
-        hiking,
-        difficulty,
-        country,
-        climb,
-        maximumAttitude,
-        minimumAttitude,
-        meters,
+        moving_time: parseInt(time),
+        length_3d: parseInt(length),
+        hiking_environment: hiking,
+        difficulty: parseInt(difficulty),
+        country: country.label,
+        uphill: parseInt(climb),
+        max_elevation: parseInt(maximumAttitude),
+        min_elevation: parseInt(minimumAttitude),
+        downhill: parseInt(meters),
       };
       console.log(userAnswers);
       setIsSearching(true);
-      // await search(userAnswers);
+      //const results =  await search(userAnswers);
       setIsSearching(false);
-      setResults(trails);
+      // setResults(trails);
     }
     }
   

@@ -18,8 +18,8 @@ function AuthProvider({ children }) {
     setIsModalShow(false);
   }
   async function handleLogin(email, password) {
-    const user = { email: "jing@hike.com", password: "123" };
-    // const user = await login(email, password);
+    // const user = { email: "jing@hike.com", password: "123" };
+    const user = await login(email, password);
     if (user) {
       localStorage.activeUser = JSON.stringify(user);
       setActiveUser(user);
