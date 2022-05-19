@@ -34,7 +34,7 @@ def json_pred():
         to_predict_list = []
         observation = request.get_json()
         for key in observation:
-            if key not in ['country', 'Hiking Environment']:
+            if key not in ['country', 'hiking_environment']:
                 m = mean_data[key]
                 s = std_data[key]
                 normalized = (observation[key] - m) / s
@@ -49,7 +49,8 @@ def json_pred():
         client_country = "country_" + observation['country']
 
         # recreating the colum environment
-        client_hiking_environment = "Hiking Environment_" + observation['Hiking Environment']
+        observation.pop('key', None)
+        client_hiking_environment = "Hiking Environment_" + observation['hiking_environment']
 
         data_filter_county = data[data[client_country] == 1]
         data_filter_env = data_filter_county[data_filter_county[client_hiking_environment] == 1]
