@@ -12,5 +12,5 @@ trailRouter.route('/gettrail?')
 trailRouter.route('/getalltrails')
     .get(tc.getAllTrails)
 
-trailRouter.route('/processquestionaire')
-    .get(tc.sendQuestionare)
+trailRouter.route('/processquestionaire?')
+    .get(tc.processQuestionaire)
