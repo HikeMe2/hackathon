@@ -15,3 +15,6 @@ userRouter.route('/logout')
 
 userRouter.route('/resetpassword')
     .put(uc.resetPassword)
+
+userRouter.route('/greetuser')
+    .get(uc.greetUser)

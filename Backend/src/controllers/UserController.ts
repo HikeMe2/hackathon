@@ -58,10 +58,23 @@ import * as dbactions from '../models/userDBFunctions'
     const resetPassword = async(req:any,res:any, next: NextFunction) =>{
         throw Error("Not implemented")
     }
+
+
+
+    const greetUser = async(req:any,res:any, next: NextFunction) =>{
+        const email: string = req.query.email;
+        try{
+            const result = await dbactions.getUsersName(email)
+            res.send(result)
+        }
+        catch(err){
+            next(err)
+        }
+    }
     
 
     const updateUser = async(req:any,res:any,next:NextFunction) =>{
         throw Error("Not implemented")
     }
 
-    export {login,signup,logout,resetPassword}
+    export {login,signup,logout,resetPassword,greetUser}

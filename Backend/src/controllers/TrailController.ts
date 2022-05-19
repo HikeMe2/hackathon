@@ -40,7 +40,6 @@ const processQuestionaire = async (req : any, res : any, next : NextFunction) =>
         country: req.query.country,
         hiking_environment: req.query.hiking_environment
     }
-    console.log(questionaire)
     try{
         const trail_ids: number[] = await dbactions.getTrailReccomendations(questionaire)
         const trails = await dbactions.getTrailRanges(trail_ids)
