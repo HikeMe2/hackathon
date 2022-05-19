@@ -65,7 +65,7 @@ function FormPage() {
       <h1 className="text-center my-3">Find your new hike!</h1>
       <Row className="justify-content-center">
         <Col xs="10" lg="6">
-          {results.length === 0 && (
+          {/* {results.length === 0 && ( */}
             <Form className="my-3 ">
               {emptyFieldError && (
                 <Alert variant="danger">
@@ -205,10 +205,10 @@ function FormPage() {
                 )}
               </div>
             </Form>
-          )}
+          
         </Col>
       </Row>
-      {results.length > 0 && (
+      {/* {results.length > 0 && ( */}
         <Row className="justify-content-center">
           <Col md="12" lg="10" xl="10">
             <Row>
@@ -222,7 +222,7 @@ function FormPage() {
                     borderColor: "#563d7c",
                   }}
                   type="button"
-                  onClick={setResults([])}
+                  onClick={() => setResults([])}
                 >
                   Search Again
                 </Button>
@@ -233,7 +233,7 @@ function FormPage() {
             </Row>
           </Col>
         </Row>
-      )}
+      
     </Container>
   );
 }
