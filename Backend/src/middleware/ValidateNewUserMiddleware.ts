@@ -2,6 +2,9 @@ import { NextFunction } from 'express';
 import { IUserAJV } from '../interfaces/IUser';
 import { validateNewUser } from '../schemas/userSchema';
 export const validateNew = (req:any,res:any,next:NextFunction) =>{
+    console.log(req.body.password)
+    console.log(req.body.confirm_password)
+
     if(req.body.password != req.body.confirm_password ){
         res.status(422).send({"errorMessages":"Passwords do not match"})
         return;

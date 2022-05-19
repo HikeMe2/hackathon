@@ -12,7 +12,7 @@ function SignUpForm() {
     const [ lastName, setLastName ] = useState("");
     
     async function handleSignUp() {
-        await onSignUp(email, password, firstName, lastName);
+        await onSignUp(email, password, firstName, lastName,confirmPassword);
     }
 
     return (
