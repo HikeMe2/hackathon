@@ -21,6 +21,8 @@ async function retrieveUserFromDB(email: string, password: string) {
     }
 
     const [rows,_fields]: [RowDataPacket[], FieldPacket[]] = await connection.execute('SELECT user.first_name, user.last_name, user.email FROM user WHERE user.email=?',[email.toLowerCase()])
+    
+    
     await connection.end()
     
     return <IUser>rows[0]

@@ -5,6 +5,10 @@ const getTrail = async(req:any ,res:any ,next:NextFunction) =>{
     const trail_id = req.query.trail_id;
     try{
         const trail: ITrail = await dbactions.getTrailFromDb(trail_id)
+        if(!trail){
+            res.status(404).send("trail not found")
+            return
+        }
         res.send(trail)
     }
 
