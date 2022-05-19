@@ -21,7 +21,7 @@ async function signUp(email, password, firstName, lastName, confirmPassword) {
 
 async function search(userAnswers) {
   // const response = await api.get("/trails", userAnswers);
-  const response = await api.get("/trails/processquestionair", {
+  const response = await api.get("/trail/processquestionair", {
     params: userAnswers,
   });
   return response.data;

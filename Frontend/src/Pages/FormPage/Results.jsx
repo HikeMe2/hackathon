@@ -9,7 +9,7 @@ function Results({trails}) {
         {trails.length > 0 &&
           trails.map((element, index) => (
             <Col key={index}>
-              <TrailCard trail={element} />
+              <TrailCard trail={element} index={ index} />
             </Col>
           ))}
         {/* {trails.length === 0 && <h3>No such results</h3>} */}
