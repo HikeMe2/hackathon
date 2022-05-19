@@ -1,6 +1,7 @@
 [
     {
         "name":  "Eilat Red Canyon",
+        "hiking_environment": "Valley",
         "location": "Israel",
         "duration": "3-4 hours",
         "length":  5,
@@ -12,6 +13,7 @@
     },
     {
         "name":  "Wadi Qelt (Ein Prat)",
+        "hiking_environment": "Mountain",
         "location": "Israel",
         "duration": "5-6 hours",
         "length":  9,
@@ -23,6 +25,7 @@
     },
     {
         "name":  "EIN GEDI NATURE RESERVE",
+        "hiking_environment": "Alpine",
         "location": "Israel",
         "duration": "3-4 hours",
         "length":  6,
@@ -34,6 +37,7 @@
     },
     {
         "name":  "Eilat Red Canyon",
+        "hiking_environment": "Mountain",
         "location": "Israel",
         "duration": "1-2 days",
         "length":  60,

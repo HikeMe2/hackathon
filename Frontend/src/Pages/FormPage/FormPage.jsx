@@ -46,9 +46,10 @@ function FormPage() {
       };
       console.log(userAnswers);
       setIsSearching(true);
-      //const results =  await search(userAnswers);
+      // const results = await search(userAnswers);
+      // console.log(results);
       setIsSearching(false);
-      // setResults(trails);
+      setResults(trails);
     }
     }
   
