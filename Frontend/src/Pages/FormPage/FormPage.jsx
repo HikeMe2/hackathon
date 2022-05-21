@@ -13,6 +13,7 @@ import countryList from "react-select-country-list";
 import Results from "./Results";
 // import trails from "../../data/trails.json";
 import { search } from "../../services/api";
+import "./FormPage.css"
 
 function FormPage() {
   const [time, setTime] = useState("");
@@ -61,18 +62,17 @@ function FormPage() {
   }
 
   return (
-    <Container>
+    <Container className="form-page">
       <h1 className="text-center my-3">Find your new hike!</h1>
-      <Row className="justify-content-center">
-        <Col xs="10" lg="6">
-          {/* {results.length === 0 && ( */}
-            <Form className="my-3 ">
-              {emptyFieldError && (
-                <Alert variant="danger">
-                  Error: please complete all fields!
-                </Alert>
-              )}
-
+      {/* <Row className="justify-content-center">
+        <Col xs="10" lg="6"> */}
+      {results.length === 0 && (
+        <Form className="my-3 ">
+          {emptyFieldError && (
+            <Alert variant="danger">Error: please complete all fields!</Alert>
+          )}
+          <Row className="justify-content-center">
+            <Col md="6" lg="4">
               <Form.Group className="mb-3">
                 <Form.Label>
                   How many days do you want to hike in total?
@@ -84,6 +84,9 @@ function FormPage() {
                   onChange={(e) => setTime(e.target.value)}
                 />
               </Form.Group>
+            </Col>
+
+            <Col md="6" lg="4">
               <Form.Group className="mb-3">
                 <Form.Label>
                   How many kilometers do you want to hike in total?
@@ -95,6 +98,10 @@ function FormPage() {
                   onChange={(e) => setLength(e.target.value)}
                 />
               </Form.Group>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md="6" lg="4">
               <Form.Group className="mb-3">
                 <Form.Label>Please choose the hiking environment</Form.Label>
                 <Form.Select
@@ -108,8 +115,10 @@ function FormPage() {
                   <option value="Alpine">Alpine</option>
                 </Form.Select>
               </Form.Group>
+            </Col>
+            <Col md="6" lg="4">
               <Form.Group className="mb-3">
-                <Form.Label>Please choose the difficulties</Form.Label>
+                <Form.Label>Please choose the difficulty</Form.Label>
                 <Form.Select
                   aria-label="Default select example"
                   value={difficulty}
@@ -124,45 +133,10 @@ function FormPage() {
                   <option value={6}>6</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Please choose a country</Form.Label>
-                <Select
-                  options={options}
-                  value={country}
-                  onChange={changeCountryHandler}
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>How many meters do you want to climb?</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="Meter"
-                  value={climb}
-                  onChange={(e) => setClimb(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>
-                  What is the maximum attitude are you ready to reach?
-                </Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="Maximum attitude"
-                  value={maximumAttitude}
-                  onChange={(e) => setMaximumAttitude(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>
-                  What is the minimum attitude are you ready to start from?
-                </Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="Minimum attitude"
-                  value={minimumAttitude}
-                  onChange={(e) => setMinimumAttitude(e.target.value)}
-                />
-              </Form.Group>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md="6" lg="4">
               <Form.Group className="mb-3">
                 <Form.Label>
                   How many meters do you want to climb down?
@@ -174,41 +148,80 @@ function FormPage() {
                   onChange={(e) => setMeters(e.target.value)}
                 />
               </Form.Group>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                {/* <Button
-                variant="outline"
+            </Col>
+            <Col md="6" lg="4">
+              <Form.Group className="mb-3">
+                <Form.Label>How many meters do you want to climb?</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Meter"
+                  value={climb}
+                  onChange={(e) => setClimb(e.target.value)}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md="6" lg="4">
+              <Form.Group className="mb-3">
+                <Form.Label>
+                  What's the maximum attitude are you ready to reach?
+                </Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Maximum attitude"
+                  value={maximumAttitude}
+                  onChange={(e) => setMaximumAttitude(e.target.value)}
+                />
+              </Form.Group>
+            </Col>
+            <Col md="6" lg="4">
+              <Form.Group className="mb-3">
+                <Form.Label>
+                  What's the minimum attitude are you ready to start from?
+                </Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Minimum attitude"
+                  value={minimumAttitude}
+                  onChange={(e) => setMinimumAttitude(e.target.value)}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md="6" lg="4">
+              <Form.Group className="mb-3">
+                <Form.Label>Please choose a country</Form.Label>
+                <Select
+                  options={options}
+                  value={country}
+                  onChange={changeCountryHandler}
+                />
+              </Form.Group>
+              <Button
+                disabled={isSearching ? true : false}
+                className="p-form-btn"
                 style={{
-                  marginRight: "auto",
-                  color: "#563d7c",
+                  // marginLeft: "auto",
+                  backgroundColor: "#563d7c",
                   borderColor: "#563d7c",
                 }}
                 type="button"
-                onClick={handleClearSearch}
+                onClick={handleSearch}
               >
-                Clear Search
-              </Button> */}
-                <Button
-                  disabled={isSearching ? true : false}
-                  className="p-form-btn"
-                  style={{
-                    marginLeft: "auto",
-                    backgroundColor: "#563d7c",
-                    borderColor: "#563d7c",
-                  }}
-                  type="button"
-                  onClick={handleSearch}
-                >
-                  Search
-                </Button>
-                {isSearching && (
-                  <Spinner className="mx-1" animation="border" size="sm" />
-                )}
-              </div>
-            </Form>
-          
-        </Col>
-      </Row>
-      {/* {results.length > 0 && ( */}
+                Search
+              </Button>
+              {isSearching && (
+                <Spinner className="mx-1" animation="border" size="sm" />
+              )}
+            </Col>
+            <Col md="6" lg="4"></Col>
+          </Row>
+        </Form>
+      )}
+
+      {results.length > 0 && (
         <Row className="justify-content-center">
           <Col md="12" lg="10" xl="10">
             <Row>
@@ -232,8 +245,7 @@ function FormPage() {
               <Results trails={results} />
             </Row>
           </Col>
-        </Row>
-      
+        </Row>)}
     </Container>
   );
 }
