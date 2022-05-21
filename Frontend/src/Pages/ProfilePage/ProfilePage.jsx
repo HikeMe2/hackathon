@@ -40,7 +40,7 @@ function ProfilePage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Group className="mb-3" controlId="formBasicText1">
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 type="text"
@@ -49,7 +49,7 @@ function ProfilePage() {
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Group className="mb-3" controlId="formBasicText2">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 type="text"
