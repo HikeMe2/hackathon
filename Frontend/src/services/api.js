@@ -1,6 +1,10 @@
 import axios from "axios";
 const api = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? "https://hikeme2-backend.herokuapp.com"
+      : "http://localhost:8080",
+  // withCredentials: true,
 });
 
 async function login(email, password) {
